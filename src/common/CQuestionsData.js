@@ -1,6 +1,7 @@
-import { View, Text, FlatList, TouchableOpacity, Linking, Alert, ActivityIndicator } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, Linking, Alert, ActivityIndicator, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import Cloader from './Cloader';
 
 const CQuestionsData = (props) => {
 
@@ -28,11 +29,11 @@ const CQuestionsData = (props) => {
         const unsubscribeNavigationFocus = props.navigation.addListener(
             'focus',
             async () => {
-               await getQuestions(1)
+                await getQuestions(1)
             }
-          );
-          return unsubscribeNavigationFocus
-       
+        );
+        return unsubscribeNavigationFocus
+
     }, [props?.navigation])
 
     const fetchMore = async () => {
@@ -44,7 +45,7 @@ const CQuestionsData = (props) => {
 
     // {console.log("=======reactNativeData========",reactNativeData,"==============reactNativeData============")}
     return (
-        <View style={{ width: "100%", height: "100%", marginTop: "15%",marginBottom:"10%" }}>
+        <View style={styles.container}>
             {/* <View style={{height:400, backgroundColor:'red'}}> */}
             <FlatList
                 data={reactNativeData}
@@ -55,8 +56,8 @@ const CQuestionsData = (props) => {
                     //    { console.log("============item=============",item,"------------------item=================")}
                     return (
                         <View style={{ width: "100%" }}>
-                            <TouchableOpacity style={{ backgroundColor: "lightgray", marginHorizontal: 20, borderRadius: 20, marginVertical: 10 }} onPress={() => Linking.openURL(item.link)}>
-                                <Text style={{ color: "red", padding: 20 }}>
+                            <TouchableOpacity style={styles.buttonStyle} onPress={() => Linking.openURL(item.link)}>
+                                <Text style={{ color: "black", padding: 20 }}>
                                     {item.title}
                                 </Text>
                             </TouchableOpacity>
@@ -64,11 +65,18 @@ const CQuestionsData = (props) => {
                 }}
             />
             {/* </View> */}
-            {loading && <View style={{position:"absolute",zIndex:99,alignItems:"center",justifyContent:"center"}}>
-                <ActivityIndicator size="large" color="#00ff00"/>
+            {loading && <View style={{ position: "absolute", zIndex: 99, alignItems: "center", justifyContent: "center", alignSelf: "center", height: "100%" }}>
+                <Cloader />
             </View>}
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        width: "100%", height: "100%", marginTop: 20, marginBottom: "10%"
+    },
+    buttonStyle:{ backgroundColor: "white", marginHorizontal: 20, borderRadius: 20, marginVertical: 10 }
+})
 
 export default CQuestionsData

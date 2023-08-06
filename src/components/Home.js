@@ -2,6 +2,7 @@ import { View, Text, FlatList, TouchableOpacity, Linking, Alert, ActivityIndicat
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import CQuestionsData from '../common/CQuestionsData';
+import Cheader from '../common/Cheader';
 
 const Home = ({props,navigation}) => {
 
@@ -38,6 +39,7 @@ const Home = ({props,navigation}) => {
     // {console.log("=======reactNativeData========",reactNativeData,"==============reactNativeData============")}
     return (
         <View style={{ width: "100%", height: "100%", marginTop: "15%",marginBottom:"10%" }}>
+            <Cheader title={"React Native"} />
            <CQuestionsData tag="react-native" navigation={navigation} />
         </View>
     )

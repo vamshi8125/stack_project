@@ -13,11 +13,11 @@ const Tab = createBottomTabNavigator();
 
 
 const App = () => {
-
+    
     function MyTabs() {
         return (
-            <Tab.Navigator>
-                <Tab.Screen name="Home" component={Home} options={{ headerShown: false }}/>
+            <Tab.Navigator  >
+                <Tab.Screen   name="React Native" component={Home}  options={{ headerShown: false }}/>
                 <Tab.Screen name="ReactStack" component={ReactStack} options={{ headerShown: false }}/>
                 <Tab.Screen name="NodeStack" component={NodeStack} options={{ headerShown: false }}/>
             </Tab.Navigator>

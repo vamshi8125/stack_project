@@ -65,7 +65,7 @@ const CQuestionsData = (props) => {
                 }}
             />
             {/* </View> */}
-            {loading && <View style={{ position: "absolute", zIndex: 99, alignItems: "center", justifyContent: "center", alignSelf: "center", height: "100%" }}>
+            {loading && <View style={styles.loaderView}>
                 <Cloader />
             </View>}
         </View>
@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
     container: {
         width: "100%", height: "100%", marginTop: 20, marginBottom: "10%"
     },
-    buttonStyle:{ backgroundColor: "white", marginHorizontal: 20, borderRadius: 20, marginVertical: 10 }
+    buttonStyle:{ backgroundColor: "white", marginHorizontal: 20, borderRadius: 20, marginVertical: 10 },
+    loaderView:{ position: "absolute", zIndex: 99, alignItems: "center", justifyContent: "center", alignSelf: "center", height: "100%" }
 })
 
 export default CQuestionsData

@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import CQuestionsData from '../common/CQuestionsData'
 
-const NodeStack = () => {
+const NodeStack = ({props,navigation}) => {
   return (
-    <View style={{backgroundColor:"red",width:"100%",height:"100%",alignItems:"center",justifyContent:"center"}}>
-      <Text>NodeStack</Text>
-    </View>
+    <View style={{ width: "100%", height: "100%", marginTop: "15%",marginBottom:"10%" }}>
+    <CQuestionsData tag="Nodejs" navigation={navigation} />
+ </View>
   )
 }
 
